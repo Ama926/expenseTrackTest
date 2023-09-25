@@ -10,6 +10,7 @@ import simd
 
 struct ListView: View {
     @EnvironmentObject var allTypesManager: AllTypesManager
+    @State private var showPopup = false
     
     var body: some View {
         NavigationView {
@@ -28,10 +29,13 @@ struct ListView: View {
             }
             .navigationTitle("All")
             .navigationBarItems(trailing: Button(action: {
-                // Add button action
+                showPopup.toggle()
             }) {
                 Image(systemName: "plus")
             })
+            .sheet(isPresented: $showPopup){
+                AddNewExpenses()
+            }
         }
     }
 

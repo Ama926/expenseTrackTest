@@ -32,6 +32,7 @@
 		814C43D42AC1DC9C005194D8 /* ListAllTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D32AC1DC9C005194D8 /* ListAllTypes.swift */; };
 		814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */; };
 		814C43D82AC1EF17005194D8 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D72AC1EF17005194D8 /* ListView.swift */; };
+		814C43DA2AC1F88C005194D8 /* AddNewExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		814C43D32AC1DC9C005194D8 /* ListAllTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllTypes.swift; sourceTree = "<group>"; };
 		814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTypesManager.swift; sourceTree = "<group>"; };
 		814C43D72AC1EF17005194D8 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExpenses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				814C43CD2AC0C731005194D8 /* BarView.swift */,
 				814C43D32AC1DC9C005194D8 /* ListAllTypes.swift */,
 				814C43D72AC1EF17005194D8 /* ListView.swift */,
+				814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				811CEE5B2ABF686C00A0C1FB /* ContentView.swift in Sources */,
 				814C43D42AC1DC9C005194D8 /* ListAllTypes.swift in Sources */,
 				811CEE952ABF706300A0C1FB /* Home.swift in Sources */,
+				814C43DA2AC1F88C005194D8 /* AddNewExpenses.swift in Sources */,
 				811CEE592ABF686C00A0C1FB /* expenseTrackTestApp.swift in Sources */,
 				814C43CC2AC0C71B005194D8 /* BarChartView.swift in Sources */,
 			);

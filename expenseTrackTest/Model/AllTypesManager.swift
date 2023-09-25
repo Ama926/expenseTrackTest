@@ -8,14 +8,6 @@
 import SwiftUI
 import Firebase
 
-//struct AllTypes: Identifiable{
-//    var id: String
-//    var type: String
-//    var remark: String
-//    var date: Date
-//    var amount: Double
-//    var category: String
-//}
 class AllTypesManager: ObservableObject {
     @Published var allTypes : [AllTypes] = []
     
@@ -47,6 +39,16 @@ class AllTypesManager: ObservableObject {
                     let allTypes = AllTypes(id: id, type: type, remark: remark, date: date, amount: amount, category: category)
                     self.allTypes.append(allTypes)
                 }
+            }
+        }
+    }
+    
+    func addData(id: String, type: String, category: String, date: Date, remark: String, amount: Int){
+        let db = Firestore.firestore()
+        let ref = db.collection("AllTypes").document(id)
+        ref.setData(["type": type, "id": id, "remark": remark, "date": date, "category": category, "amount": amount]){error in
+            if let error = error {
+                print(error.localizedDescription)
             }
         }
     }
