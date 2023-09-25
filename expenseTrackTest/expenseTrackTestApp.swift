@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseCore
 @main
 struct expenseTrackTestApp: App {
+    @StateObject var allTypesManager = AllTypesManager()
     
     init() {
         FirebaseApp.configure()
@@ -16,6 +17,7 @@ struct expenseTrackTestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(allTypesManager)
         }
     }
 }

@@ -45,7 +45,7 @@ struct ContentView: View {
                         Image(systemName: "phone.fill")
                         Text("Report")
                     }
-                UserProfileView()
+                ListView()
                     .tabItem(){
                         Image(systemName: "person.2.fill")
                         Text("Profile")
