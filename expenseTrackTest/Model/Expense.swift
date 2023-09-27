@@ -10,6 +10,8 @@ import FirebaseFirestoreSwift
 
 struct Expense: Identifiable, Decodable {
     @DocumentID var id: String?
+    let type: String
+    let remark: String
     let amount: Double
     let category: String
     let date: Timestamp // Use Firestore Timestamp for date
