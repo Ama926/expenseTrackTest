@@ -10,6 +10,7 @@ import FirebaseCore
 @main
 struct expenseTrackTestApp: App {
     @StateObject var allTypesManager = AllTypesManager()
+    @StateObject var authView = AuthViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -18,6 +19,7 @@ struct expenseTrackTestApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(allTypesManager)
+                .environmentObject(authView)
         }
     }
 }
