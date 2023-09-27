@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810208262AC4063900DA7098 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810208252AC4063900DA7098 /* CustomTabBar.swift */; };
 		811CEE592ABF686C00A0C1FB /* expenseTrackTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CEE582ABF686C00A0C1FB /* expenseTrackTestApp.swift */; };
 		811CEE5B2ABF686C00A0C1FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CEE5A2ABF686C00A0C1FB /* ContentView.swift */; };
 		811CEE5D2ABF686F00A0C1FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 811CEE5C2ABF686F00A0C1FB /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		810208252AC4063900DA7098 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		811CEE552ABF686C00A0C1FB /* expenseTrackTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = expenseTrackTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		811CEE582ABF686C00A0C1FB /* expenseTrackTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = expenseTrackTestApp.swift; sourceTree = "<group>"; };
 		811CEE5A2ABF686C00A0C1FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		810208242AC4061500DA7098 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				810208252AC4063900DA7098 /* CustomTabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		811CEE4C2ABF686B00A0C1FB = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		811CEE572ABF686C00A0C1FB /* expenseTrackTest */ = {
 			isa = PBXGroup;
 			children = (
+				810208242AC4061500DA7098 /* Components */,
 				814C43BD2ABF7E9D005194D8 /* Model */,
 				811CEE962ABF749D00A0C1FB /* GoogleService-Info.plist */,
 				811CEE8B2ABF6C1900A0C1FB /* View */,
@@ -345,6 +356,7 @@
 				811CEE912ABF6CA100A0C1FB /* SignUpView.swift in Sources */,
 				814C43C12AC0AAD2005194D8 /* ReportView.swift in Sources */,
 				814C43CA2AC0C23A005194D8 /* Expense.swift in Sources */,
+				810208262AC4063900DA7098 /* CustomTabBar.swift in Sources */,
 				811CEE932ABF6CBA00A0C1FB /* AuthView.swift in Sources */,
 				811CEE8D2ABF6C6600A0C1FB /* LoginView.swift in Sources */,
 				811CEE5B2ABF686C00A0C1FB /* ContentView.swift in Sources */,

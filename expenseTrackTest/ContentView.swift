@@ -10,6 +10,7 @@ import Firebase
 
 struct ContentView: View {
     @AppStorage("uid") var userID: String = ""
+    @State var selectedTab: Tabs = .expense
     
     var body: some View {
         
@@ -33,30 +34,60 @@ struct ContentView: View {
 //            }){
 //                Text("Sign Out")
 //            }
-            //Home()
-            TabView{
+            
+//            TabView{
+//
+//                Home()
+//                    .tabItem(){
+//                        Image(systemName: "house.fill")
+//                        Text("Dashboard")
+//                    }
+//                ReportView()
+//                    .tabItem(){
+//                        Image(systemName: "phone.fill")
+//                        Text("Report")
+//                    }
+//                ListView()
+//                    .tabItem(){
+//                        Image(systemName: "person.2.fill")
+//                        Text("Profile")
+//                    }
+//
+//                BarChartView()
+//                    .tabItem(){
+//                        Image(systemName: "person.2.fill")
+//                        Text("BCV")
+//                    }
+//            }
+            
+ //           TabView(selection: $)
+            
+            TabView(selection: $selectedTab){
                 Home()
-                    .tabItem(){
-                        Image(systemName: "house.fill")
-                        Text("Dashboard")
-                    }
-                ReportView()
-                    .tabItem(){
-                        Image(systemName: "phone.fill")
-                        Text("Report")
-                    }
-                ListView()
-                    .tabItem(){
-                        Image(systemName: "person.2.fill")
-                        Text("Profile")
-                    }
+                    .tabItem {
+                        Label("Home", systemImage: "house.fill")
+                }
+                    .tag(Tabs.expense)
                 
-                BarChartView()
-                    .tabItem(){
-                        Image(systemName: "person.2.fill")
-                        Text("BCV")
-                    }
+                ListView()
+                    .tabItem {
+                        Label("List", systemImage: "phone.fill")
+                }
+                    .tag(Tabs.add)
+                
+                ReportView()
+                    .tabItem {
+                        Label("Report", systemImage: "house.fill")
+                }
+                    .tag(Tabs.report)
+                
+                UserProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.2.fill")
+                }
+                    .tag(Tabs.profile)
             }
+            
         }
         
     }

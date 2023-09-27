@@ -4,17 +4,20 @@
 //
 //  Created by Ama Ranasi on 2023-09-25.
 //
+//
+
 
 import SwiftUI
 import simd
 
 struct ListView: View {
     @EnvironmentObject var allTypesManager: AllTypesManager
-    @State private var showPopup = false
-    
+    @State private var isAddingNewExpense = false
+
     var body: some View {
         NavigationView {
             List(allTypesManager.allTypes, id: \.id) { allTypes in
+                // Your list content here
                 VStack(alignment: .leading) {
                     Text("Type: ")
                         .foregroundColor(textColorForType(allTypes.type))
@@ -29,37 +32,47 @@ struct ListView: View {
             }
             .navigationTitle("All")
             .navigationBarItems(trailing: Button(action: {
-                showPopup.toggle()
+                isAddingNewExpense.toggle()
             }) {
                 Image(systemName: "plus")
             })
-            .sheet(isPresented: $showPopup){
-                AddNewExpenses()
+            .sheet(isPresented: $isAddingNewExpense) {
+                NavigationView {
+                    AddNewExpenses()
+                        .navigationBarItems(
+                            leading: Button("Cancel") {
+                                isAddingNewExpense = false
+                                
+                            },
+                            trailing: Button("Save") {
+                                // Add your save logic here
+                                isAddingNewExpense = false
+                            }
+                        )
+                        .navigationTitle("Add New Expenses")
+                }
             }
         }
+        
     }
-
-    // Helper function to determine text color based on type
+    
     func textColorForType(_ type: String) -> Color {
-        if type == "income" {
-            return .green
-        } else if type == "expense" {
-            return .red
-        } else {
-            return .primary // Default color for other types
+            if type == "Income" {
+                return .green
+            } else if type == "Expenses" {
+                return .red
+            } else {
+                return .primary // Default color for other types
+            }
         }
-    }
 
 
-    // Helper function to format the date
     func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy" // Customize the date format as needed
         return dateFormatter.string(from: date)
     }
-
 }
-
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView()

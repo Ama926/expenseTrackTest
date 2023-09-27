@@ -42,7 +42,7 @@ class AllTypesManager: ObservableObject {
             }
         }
     }
-    
+     
     func addData(id: String, type: String, category: String, date: Date, remark: String, amount: Int){
         let db = Firestore.firestore()
         let ref = db.collection("AllTypes").document(id)
