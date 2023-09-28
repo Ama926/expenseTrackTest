@@ -36,7 +36,6 @@ struct UserProfileView: View {
                 }
             
                     Button {
-                        // Action to perform when the button is tapped
                         viewModel.signOut()
                     } label: {
                         HStack {

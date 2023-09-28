@@ -8,60 +8,43 @@
 import SwiftUI
 import Firebase
 
-struct ContentView: View {
-    @AppStorage("uid") var userID: String = ""
-    @State var selectedTab: Tabs = .expense
+class ContentViewModel: ObservableObject {
+    @EnvironmentObject var contentViewModel: ContentViewModel
+   // @Published var contentViewModel : ContentViewModel
+    @Binding var currentShowingView: String
     
-    var body: some View {
-        
-        if userID == "" {
+    // Add an initializer
+        init(currentShowingView: Binding<String>) {
+            _currentShowingView = currentShowingView
+        }
+    
+    func signOut() {
             
-            AuthView()
-        }else {
-//            Text("Logged In! \nYour User ID is: \(userID)")
-//
-//            Button(action: {
+        self.currentShowingView = "login"
 //                let firebaseAuth = Auth.auth()
 //                do {
 //                  try firebaseAuth.signOut()
-//                    withAnimation{
-//                        userID = ""
-//                    }
+//                    print("signout")
+//                    self.currentShowingView = "login"
 //
 //                } catch let signOutError as NSError {
 //                  print("Error signing out: %@", signOutError)
 //                }
-//            }){
-//                Text("Sign Out")
-//            }
+             
             
-//            TabView{
-//
-//                Home()
-//                    .tabItem(){
-//                        Image(systemName: "house.fill")
-//                        Text("Dashboard")
-//                    }
-//                ReportView()
-//                    .tabItem(){
-//                        Image(systemName: "phone.fill")
-//                        Text("Report")
-//                    }
-//                ListView()
-//                    .tabItem(){
-//                        Image(systemName: "person.2.fill")
-//                        Text("Profile")
-//                    }
-//
-//                BarChartView()
-//                    .tabItem(){
-//                        Image(systemName: "person.2.fill")
-//                        Text("BCV")
-//                    }
-//            }
-            
- //           TabView(selection: $)
-            
+        }
+}
+
+struct ContentView: View {
+    @AppStorage("uid") var userID: String = ""
+    @State var selectedTab: Tabs = .expense
+    //ContentViewModel(currentShowingView: $currentShowingView)
+    
+    var body: some View {
+        
+        if userID == "" {
+            AuthView()
+        }else {
             TabView(selection: $selectedTab){
                 Home()
                     .tabItem {

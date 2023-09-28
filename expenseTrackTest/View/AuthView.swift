@@ -29,21 +29,35 @@
 //}
 
 import SwiftUI
-import Firebase
+import FirebaseAuth
 
 class AuthViewModel: ObservableObject {
+    @AppStorage("uid") var userID: String = ""
     @Published var currentViewShowing: String = "login"
     
     func signOut() {
-            do {
-                try Auth.auth().signOut()
-                // Sign-out successful
-                print("signout")
-                currentViewShowing = "login"
-            } catch {
-                // An error occurred during sign-out
-                print("Error during sign-out: \(error.localizedDescription)")
+//                currentViewShowing = "login"
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            withAnimation{
+                userID = ""
             }
+            
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+//                let firebaseAuth = Auth.auth()
+//                do {
+//                  try firebaseAuth.signOut()
+//                    print("signout")
+//
+//                } catch let signOutError as NSError {
+//                  print("Error signing out: %@", signOutError)
+//                }
+        
+             
+            
         }
 }
 
@@ -60,13 +74,8 @@ struct AuthView: View {
                 .transition(.move(edge: .bottom))
         }
         
-        Button(action: {
-                        viewModel.signOut() // Call the signOut function from the view model
-                    }) {
-                        Text("Sign Out")
-                            .foregroundColor(.red)
-                    }
-                    .padding()
+        
+
     }
 }
 

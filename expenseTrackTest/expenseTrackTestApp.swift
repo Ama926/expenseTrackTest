@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseCore
 @main
 struct expenseTrackTestApp: App {
+    @StateObject var contentViewModel = ContentViewModel(currentShowingView: .constant(""))
     @StateObject var allTypesManager = AllTypesManager()
     @StateObject var authView = AuthViewModel()
     
@@ -20,6 +21,8 @@ struct expenseTrackTestApp: App {
             ContentView()
                 .environmentObject(allTypesManager)
                 .environmentObject(authView)
+                .environmentObject(contentViewModel)
+            
         }
     }
 }
