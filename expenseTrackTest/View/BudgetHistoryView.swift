@@ -12,12 +12,47 @@ struct BudgetHistoryView: View {
     private let firestoreService = FirestoreService()
     
     var body: some View {
-        Text("Hello, Budget!")
+        ScrollView{
+            VStack{
+                ForEach(budgets, id: \.month) { budget in
+                    CardView(budget: budget)
+                }
+            }
+            .padding()
+        }
+        .onAppear{
+            //fetch
+            firestoreService.getBudgetHistory { budgets in
+                self.budgets = budgets
+            }
+        }
     }
 }
 
-struct BudgetHistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        BudgetHistoryView()
+struct CardView: View {
+    let budget: Budget
+    
+    var body: some View {
+        VStack {
+            Text(budget.month)
+                .font(.title)
+                .fontWeight(.bold)
+            
+            ForEach(budget.categories.sorted(by: <), id: \.key) { category, amount in
+                            HStack {
+                                Text(category)
+                                Spacer()
+                                Text("$\(amount, specifier: "%.2f")")
+                            }
+                        }
+                .padding(.vertical, 5)
+                         
+        }
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 3)
+                            .padding(.vertical, 10)
     }
 }
+
+
