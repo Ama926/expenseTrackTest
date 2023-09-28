@@ -79,10 +79,8 @@
 //    }
 //}
 
-import SwiftUI
-import Firebase
-import FirebaseFirestoreSwift
 
+//
 //@main
 //class AppDelegate: UIResponder, UIApplicationDelegate {
 //    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -90,6 +88,10 @@ import FirebaseFirestoreSwift
 //        return true
 //    }
 //}
+
+import SwiftUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct Expenses: Identifiable {
     let id: String
@@ -125,7 +127,7 @@ struct ListView: View {
                 .padding()
                 
                 List(filteredExpenses, id: \.id) { expenses in
-                    // Your list content here
+                    // list content here
                     ExpenseView(expenses: expenses)
                 }
                 .navigationTitle("All")
@@ -154,73 +156,73 @@ struct ListView: View {
     }
     
     var filteredExpenses: [Expenses] {
-        let currentDate = Date()
-        let calendar = Calendar.current
-        
-        switch selectedTab {
-        case .currentMonth:
-            let currentMonth = calendar.component(.month, from: currentDate)
-            let currentYear = calendar.component(.year, from: currentDate)
-            
-            return allTypesManager.allTypes
-                .compactMap { allTypes in
-                    guard
-                        let timestamp = allTypes.date as? Date,
-                        let amount = allTypes.amount as? Double,
-                        let type = allTypes.type as? String,
-                        let category = allTypes.category as? String,
-                        let remark = allTypes.remark as? String
-                    else {
-                        return nil
+            let currentDate = Date()
+            let calendar = Calendar.current
+
+            switch selectedTab {
+            case .currentMonth:
+                let currentMonth = calendar.component(.month, from: currentDate)
+                let currentYear = calendar.component(.year, from: currentDate)
+
+                return allTypesManager.allTypes
+                    .compactMap { allTypes in
+                        guard
+                            let timestamp = allTypes.date as? Date,
+                            let amount = allTypes.amount as? Double,
+                            let type = allTypes.type as? String,
+                            let category = allTypes.category as? String,
+                            let remark = allTypes.remark as? String
+                        else {
+                            // Print an error or add some error handling here
+                            return nil
+                        }
+
+                        return Expenses(
+                            id: allTypes.id,
+                            date: timestamp,
+                            amount: amount,
+                            type: type,
+                            category: category,
+                            remark: remark
+                        )
                     }
-                    
-                    return Expenses(
-                        id: allTypes.id,
-                       // date: dateFromTimestamp(timestamp), // Convert Firestore Timestamp to Date
-                        date: timestamp,
-                        amount: amount,
-                        type: type,
-                        category: category,
-                        remark: remark
-                    )
-                }
-                .filter { expense in
-                    let expenseMonth = calendar.component(.month, from: expense.date)
-                    let expenseYear = calendar.component(.year, from: expense.date)
-                    return expenseMonth == currentMonth && expenseYear == currentYear
-                }
-            
-        case .currentYear:
-            let currentYear = calendar.component(.year, from: currentDate)
-            
-            return allTypesManager.allTypes
-                .compactMap { allTypes in
-                    guard
-                        let timestamp = allTypes.date as? Date,
-                        let amount = allTypes.amount as? Double,
-                        let type = allTypes.type as? String,
-                        let category = allTypes.category as? String,
-                        let remark = allTypes.remark as? String
-                    else {
-                        return nil
+                    .filter { expenses in
+                        let expenseMonth = calendar.component(.month, from: expenses.date)
+                        let expenseYear = calendar.component(.year, from: expenses.date)
+                        return expenseMonth == currentMonth && expenseYear == currentYear
                     }
-                    
-                    return Expenses(
-                        id: allTypes.id,
-                       // date: dateFromTimestamp(timestamp), // Convert Firestore Timestamp to Date
-                        date: timestamp,
-                        amount: amount,
-                        type: type,
-                        category: category,
-                        remark: remark
-                    )
-                }
-                .filter { expenses in
-                    let expenseYear = calendar.component(.year, from: expenses.date)
-                    return expenseYear == currentYear
-                }
+
+            case .currentYear:
+                let currentYear = calendar.component(.year, from: currentDate)
+
+                return allTypesManager.allTypes
+                    .compactMap { allTypes in
+                        guard
+                            let timestamp = allTypes.date as? Date,
+                            let amount = allTypes.amount as? Double,
+                            let type = allTypes.type as? String,
+                            let category = allTypes.category as? String,
+                            let remark = allTypes.remark as? String
+                        else {
+                            // Print an error or add some error handling here
+                            return nil
+                        }
+
+                        return Expenses(
+                            id: allTypes.id,
+                            date: timestamp,
+                            amount: amount,
+                            type: type,
+                            category: category,
+                            remark: remark
+                        )
+                    }
+                    .filter { expenses in
+                        let expenseYear = calendar.component(.year, from: expenses.date)
+                        return expenseYear == currentYear
+                    }
+            }
         }
-    }
 }
 
 struct ExpenseView: View {
@@ -229,12 +231,11 @@ struct ExpenseView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Type: ")
-                .foregroundColor(textColorForType(expenses.type))
             Text(expenses.type)
                 .font(.headline)
                 .foregroundColor(textColorForType(expenses.type))
             Text("Remark: \(expenses.remark)")
-          //  Text("Date: \(formattedDate(expenses.date))")
+            Text("Date: \(formattedDate(expenses.date))")
             Text("Amount: \(String(format: "%.2f", expenses.amount))")
             Text("Category: \(expenses.category)")
         }
