@@ -15,6 +15,35 @@ class AllTypesManager: ObservableObject {
         fetchAllTypes()
     }
     
+//    func fetchAllTypes() {
+//        allTypes.removeAll()
+//        let db = Firestore.firestore()
+//        let ref = db.collection("AllTypes")
+//        ref.getDocuments { snapshot, error in
+//            guard error == nil else {
+//                print(error!.localizedDescription)
+//                return
+//            }
+//
+//            if let snapshot = snapshot {
+//                for document in snapshot.documents {
+//                    let data = document.data()
+//
+//                    let id = data["id"] as? String ?? ""
+//                    let type = data["type"] as? String ?? ""
+//                    let remark = data["remark"] as? String ?? ""
+//                    let date = data["date"] as? Date ?? Date()
+//
+//                    let amount = data["amount"] as? Double ?? 0.0
+//                    let category = data["category"] as? String ?? ""
+//
+//                    let allTypes = AllTypes(id: id, type: type, remark: remark, date: date, amount: amount, category: category)
+//                    self.allTypes.append(allTypes)
+//                }
+//            }
+//        }
+//    }
+    
     func fetchAllTypes() {
         allTypes.removeAll()
         let db = Firestore.firestore()
@@ -32,7 +61,10 @@ class AllTypesManager: ObservableObject {
                     let id = data["id"] as? String ?? ""
                     let type = data["type"] as? String ?? ""
                     let remark = data["remark"] as? String ?? ""
-                    let date = data["date"] as? Date ?? Date()
+                    
+                    // Parse the date field as Timestamp and convert it to Date
+                    let timestamp = data["date"] as? Timestamp ?? Timestamp()
+                    let date = self.dateFromTimestamp(timestamp)
                     
                     let amount = data["amount"] as? Double ?? 0.0
                     let category = data["category"] as? String ?? ""
@@ -43,6 +75,12 @@ class AllTypesManager: ObservableObject {
             }
         }
     }
+    
+    func dateFromTimestamp(_ timestamp: Timestamp) -> Date {
+        return timestamp.dateValue()
+    }
+
+
      
     func addData(id: String, type: String, category: String, date: Date, remark: String, amount: Int){
         let db = Firestore.firestore()
