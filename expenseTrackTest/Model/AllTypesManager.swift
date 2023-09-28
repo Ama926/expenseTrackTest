@@ -33,6 +33,7 @@ class AllTypesManager: ObservableObject {
                     let type = data["type"] as? String ?? ""
                     let remark = data["remark"] as? String ?? ""
                     let date = data["date"] as? Date ?? Date()
+                    
                     let amount = data["amount"] as? Double ?? 0.0
                     let category = data["category"] as? String ?? ""
                     

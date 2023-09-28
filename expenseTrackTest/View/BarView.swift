@@ -4,30 +4,33 @@
 //
 //  Created by Ama Ranasi on 2023-09-25.
 //
-
-// BarView.swift
-import SwiftUI
-
-struct BarView: View {
-    let expense: TestExp
-    let maxAmount: Double = 300.0 // Adjust the maximum value as needed
-    
-    var body: some View {
-        VStack {
-            Text(expense.category)
-                .font(.caption)
-            
-            GeometryReader { geometry in
-                ZStack(alignment: .bottom) {
-                    Capsule()
-                        .frame(width: 30, height: CGFloat(expense.amount) / maxAmount * geometry.size.height)
-                        .foregroundColor(Color.blue)
-                    
-                    Text(String(format: "$%.2f", expense.amount))
-                        .font(.caption)
-                        .foregroundColor(.white)
-                }
-            }
-        }
-    }
-}
+//import SwiftUICharts
+//import SwiftUI
+//
+//struct ExpenseBarChartView: View {
+//    @ObservedObject var expenseViewModel = ExpenseViewModel()
+//
+//    var body: some View {
+//        BarChartView(dataPoints: expenseDataPoints)
+//            .onAppear {
+//                self.expenseViewModel.fetchExpenses()
+//            }
+//    }
+//
+//    var expenseDataPoints: [DataPoint] {
+//        let categories = Set(expenseViewModel.expenses.map { $0.category })
+//
+//        var dataPoints: [DataPoint] = []
+//
+//        for category in categories {
+//            let totalAmount = expenseViewModel.expenses
+//                .filter { $0.category == category }
+//                .reduce(0) { $0 + $1.amount }
+//
+//            dataPoints.append(DataPoint(category: category, value: totalAmount, color: Color.random()))
+//        }
+//
+//        return dataPoints
+//    }
+//}
+//

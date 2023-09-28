@@ -8,11 +8,10 @@
 import SwiftUI
 
 enum Tabs: Int {
-    case expense = 0
+    case home = 0
     case report = 1
     case add = 2
-    case category = 3
-    case profile = 4
+    case profile = 3
 }
 
 struct CustomTabBar: View {
@@ -24,7 +23,7 @@ struct CustomTabBar: View {
 
             Button {
                 //expense
-                selectedTabs = .expense
+                selectedTabs = .home
             } label: {
                 VStack (alignment: .center, spacing: 4) {
                     Image(systemName: "tray.and.arrow.up.fill")
@@ -63,20 +62,6 @@ struct CustomTabBar: View {
                         .font(Font.footnote)
                 }
             }
-
-//            Button {
-//                //Category
-//                selectedTabs = .category
-//            } label: {
-//                VStack (alignment: .center, spacing: 4) {
-//                    Image(systemName: "list.clipboard.fill")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 24, height: 24)
-//                    Text("Category")
-//                        .font(Font.footnote)
-//                }
-//            }
 
             Button {
                 //profile

@@ -37,7 +37,7 @@ class ContentViewModel: ObservableObject {
 
 struct ContentView: View {
     @AppStorage("uid") var userID: String = ""
-    @State var selectedTab: Tabs = .expense
+    @State var selectedTab: Tabs = .home
     //ContentViewModel(currentShowingView: $currentShowingView)
     
     var body: some View {
@@ -46,11 +46,11 @@ struct ContentView: View {
             AuthView()
         }else {
             TabView(selection: $selectedTab){
-                Home()
+                HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                 }
-                    .tag(Tabs.expense)
+                    .tag(Tabs.home)
                 
                 ListView()
                     .tabItem {
@@ -58,7 +58,7 @@ struct ContentView: View {
                 }
                     .tag(Tabs.add)
                 
-                ReportView()
+                ExpensePieChartView()
                     .tabItem {
                         Label("Report", systemImage: "house.fill")
                 }
