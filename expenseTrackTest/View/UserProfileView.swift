@@ -10,12 +10,14 @@ import SwiftUI
 struct UserProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @AppStorage("uid") var userID: String = ""
+    @State private var isBudgetHistoryViewPresented = false
+    
     var body: some View {
         //if let user = $viewModel.currentUser {
             List {
                 Section{
                     HStack{
-                        Text(userID)
+                        Text("Hello")
                             .font(.title)
                             .foregroundColor(Color(.white))
                             .frame(width: 72, height: 72)
@@ -23,17 +25,28 @@ struct UserProfileView: View {
                             .clipShape(Circle())
                         
                         VStack (alignment: .leading, spacing: 4){
-                            Text(userID)
+                            Text("Ama")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .padding(.top,4)
                             
-                            Text(userID)
+                            Text("Ama")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
                         }
                     }
                 }
+                
+                Button{
+                    //navigate to budget View
+                    isBudgetHistoryViewPresented.toggle()
+                   
+                } label : {
+                    Text("Add Budget")
+                }
+                
+                .padding()
+                
             
                     Button {
                         viewModel.signOut()
@@ -47,7 +60,16 @@ struct UserProfileView: View {
                 
                 
             }
- //
+        
+            .sheet(isPresented: $isBudgetHistoryViewPresented) {
+                            NavigationView { // Embed BudgetHistoryView in a NavigationView
+                                BudgetEntryView()
+                                    .navigationBarTitle("Budget History", displayMode: .inline)
+                                    .navigationBarItems(trailing: Button("Close") {
+                                        isBudgetHistoryViewPresented.toggle()
+                                    })
+                            }
+                        }
     }
 }
 

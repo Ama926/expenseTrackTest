@@ -34,6 +34,10 @@
 		814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */; };
 		814C43D82AC1EF17005194D8 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D72AC1EF17005194D8 /* ListView.swift */; };
 		814C43DA2AC1F88C005194D8 /* AddNewExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */; };
+		81F707D22AC5B72D00DA348C /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D12AC5B72C00DA348C /* Budget.swift */; };
+		81F707D42AC5B77F00DA348C /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D32AC5B77F00DA348C /* FirestoreService.swift */; };
+		81F707D62AC5B9AB00DA348C /* BudgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D52AC5B9AB00DA348C /* BudgetEntryView.swift */; };
+		81F707D82AC5BC3F00DA348C /* BudgetHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D72AC5BC3F00DA348C /* BudgetHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTypesManager.swift; sourceTree = "<group>"; };
 		814C43D72AC1EF17005194D8 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExpenses.swift; sourceTree = "<group>"; };
+		81F707D12AC5B72C00DA348C /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		81F707D32AC5B77F00DA348C /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		81F707D52AC5B9AB00DA348C /* BudgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetEntryView.swift; sourceTree = "<group>"; };
+		81F707D72AC5BC3F00DA348C /* BudgetHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,8 @@
 				814C43D32AC1DC9C005194D8 /* ListAllTypes.swift */,
 				814C43D72AC1EF17005194D8 /* ListView.swift */,
 				814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */,
+				81F707D52AC5B9AB00DA348C /* BudgetEntryView.swift */,
+				81F707D72AC5BC3F00DA348C /* BudgetHistoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +213,8 @@
 				814C43C72AC0AF27005194D8 /* FirestoreManager.swift */,
 				814C43C92AC0C23A005194D8 /* Expense.swift */,
 				814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */,
+				81F707D12AC5B72C00DA348C /* Budget.swift */,
+				81F707D32AC5B77F00DA348C /* FirestoreService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F707D62AC5B9AB00DA348C /* BudgetEntryView.swift in Sources */,
 				814C43CE2AC0C731005194D8 /* BarView.swift in Sources */,
 				814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */,
 				814C43D82AC1EF17005194D8 /* ListView.swift in Sources */,
@@ -359,9 +372,12 @@
 				810208262AC4063900DA7098 /* CustomTabBar.swift in Sources */,
 				811CEE932ABF6CBA00A0C1FB /* AuthView.swift in Sources */,
 				811CEE8D2ABF6C6600A0C1FB /* LoginView.swift in Sources */,
+				81F707D82AC5BC3F00DA348C /* BudgetHistoryView.swift in Sources */,
 				811CEE5B2ABF686C00A0C1FB /* ContentView.swift in Sources */,
 				814C43D42AC1DC9C005194D8 /* ListAllTypes.swift in Sources */,
 				811CEE952ABF706300A0C1FB /* Home.swift in Sources */,
+				81F707D22AC5B72D00DA348C /* Budget.swift in Sources */,
+				81F707D42AC5B77F00DA348C /* FirestoreService.swift in Sources */,
 				814C43DA2AC1F88C005194D8 /* AddNewExpenses.swift in Sources */,
 				811CEE592ABF686C00A0C1FB /* expenseTrackTestApp.swift in Sources */,
 				814C43CC2AC0C71B005194D8 /* BarChartView.swift in Sources */,
