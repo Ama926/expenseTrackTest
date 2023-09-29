@@ -55,7 +55,7 @@ struct AddNewExpenses: View {
 
                     DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
                         .foregroundColor(.black)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: 75)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -70,7 +70,7 @@ struct AddNewExpenses: View {
 //                        .textFieldStyle(.plain)
                         .foregroundColor(.black)
                         .font(.title3)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: 75)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -82,7 +82,7 @@ struct AddNewExpenses: View {
                     TextField("Amount", text: $amount)
                         .foregroundColor(.black)
                         .font(.title3)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, maxHeight: 75)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -98,7 +98,7 @@ struct AddNewExpenses: View {
                     }) {
                         Text("SAVE")
                             .bold()
-                            .frame(maxWidth: .infinity, maxHeight: 75)
+                            .frame(maxWidth: .infinity, maxHeight: 100)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
 //                                    .fill(.linearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottomTrailing))

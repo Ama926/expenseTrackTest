@@ -55,7 +55,7 @@ struct ContentView: View {
                 
                 ListView()
                     .tabItem {
-                        Label("Records", systemImage: "chart.bar.fill")
+                        Label("Records", systemImage: "ellipsis.circle")
                 }
                     .tag(Tabs.records)
                 

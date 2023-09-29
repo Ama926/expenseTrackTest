@@ -7,45 +7,6 @@
 
 //
 import SwiftUI
-//
-//struct HomeView: View {
-//    //@AppStorage("uid") var userID: String = ""
-//    @ObservedObject var viewModel = ExpenseViewModel()
-//
-//    var body: some View {
-//        VStack {
-//            CardView2(title: "Total Income", amount: viewModel.totalIncome)
-//            CardView2(title: "Total Expenses", amount: viewModel.totalExpenses)
-//            CardView2(title: "Difference", amount: viewModel.totalIncome - viewModel.totalExpenses)
-//        }
-//    }
-//}
-//
-//struct CardView2: View {
-//    var title: String
-//    var amount: Double
-//
-//    var body: some View {
-//        VStack {
-//            Text(title)
-//                .font(.headline)
-//            Text(String(format: "$%.2f", amount))
-//                .font(.largeTitle)
-//        }
-//        .padding()
-//        .background(Color.blue)
-//        .foregroundColor(.white)
-//        .cornerRadius(10)
-//        .padding()
-//    }
-//}
-//
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}
-
 
 struct HomeView: View {
     //@AppStorage("uid") var userID: String = ""
@@ -54,46 +15,72 @@ struct HomeView: View {
     var body: some View {
         
         ZStack{
-            Color.black.ignoresSafeArea()
+            Color.white
             VStack {
                 
-                Text("Welcome to Your Financial Summary")
+                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width: 400, height: 250)
+                    .rotationEffect(.degrees(180))
+                    .offset(y: -60)
+                    .overlay(
+                            Text("Welcome Back, Ama")
                                 .font(.title)
+                                .bold()
                                 .foregroundColor(.white)
-                                .padding(.top, 10)
-                                .multilineTextAlignment(.center)
-                VStack{
-                    CardView2(title: "Total Income", amount: viewModel.totalIncome, cardColor: .green.opacity(0.5))
-                    CardView2(title: "Total Expenses", amount: viewModel.totalExpenses, cardColor: .red.opacity(0.5))
-                    CardView2(title: "Difference", amount: viewModel.totalIncome - viewModel.totalExpenses, cardColor: viewModel.totalIncome >= viewModel.totalExpenses ? Color.green.opacity(0.8) : Color.yellow.opacity(0.8))
-                }
+                        )
+           
+                //VStack{
+                    
+                CardView2(title: "Total Income", amount: viewModel.totalIncome, cardColor: .green.opacity(0.8), iconSystemName: "arrow.up.circle.fill")
+                
+                CardView2(title: "Total Expenses", amount: viewModel.totalExpenses, cardColor: .red.opacity(0.9), iconSystemName: "arrow.down.circle.fill")
+                
+                CardView2(title: "Difference", amount: viewModel.totalIncome - viewModel.totalExpenses, cardColor: viewModel.totalIncome >= viewModel.totalExpenses ? Color.yellow.opacity(0.8) : Color.yellow.opacity(0.8), iconSystemName: "arrow.right.circle.fill")
+
+                //}
                 
             }
         }
-        
+        .ignoresSafeArea()
     }
+        
 }
 
 struct CardView2: View {
     var title: String
     var amount: Double
     var cardColor: Color
+    var iconSystemName: String // The SF Symbol name for the icon
+    
+    init(title: String, amount: Double, cardColor: Color, iconSystemName: String) {
+        self.title = title
+        self.amount = amount
+        self.cardColor = cardColor
+        self.iconSystemName = iconSystemName
+    }
     
     var body: some View {
         VStack {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.white)
+            HStack {
+                Image(systemName: iconSystemName) // Add the SF Symbol for the icon
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text(title)
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
             Text(String(format: "%.2f LKR", amount))
                 .font(.largeTitle)
                 .foregroundColor(.white)
         }
-        .frame(width: 250, height: 150)
+        .frame(width: 350, height: 120)
         .background(cardColor)
         .cornerRadius(15)
         .padding()
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
