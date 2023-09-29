@@ -115,6 +115,9 @@ struct AddNewExpenses: View {
             .sheet(isPresented: $isShowingListView, content: {
                 ListView()
             })
+            
+//            NavigationLink("", destination: ListView(), isActive: $isShowingListView)
+//                        .hidden() // Hide the actual link button
         }
     }
 
@@ -135,7 +138,8 @@ struct AddNewExpenses: View {
             allTypesManager.addData(id: newExpense.id, type: newExpense.type, category: newExpense.category, date: newExpense.date, remark: newExpense.remark, amount: Int(newExpense.amount))
 
            
-            isShowingListView = true
+            //isShowingListView = true
+           // ListView()
 
             type = ""
             selectedCategory = ""
