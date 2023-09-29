@@ -22,7 +22,7 @@ struct ExpenseTextField: View {
                 .stroke(lineWidth: 2)
                 .foregroundColor(.black)
         )
-        .padding()
+       // .padding()
     }
 }
 
@@ -54,19 +54,20 @@ struct BudgetEntryView: View {
             Color.white.edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer(minLength: 20)
+                Spacer(minLength: 5)
                 HStack {
                     Text("Enter New Budget")
                         .font(.title2)
                         .bold()
                     Spacer()
                 }
-                .padding()
-                .padding(.top)
+                //.padding()
+                //.padding(.top)
                 
                 Spacer()
                 
                 Text("Select Month")
+                    .font(.title3)
                 
                 Picker("Month", selection: $selectedMonth) {
                     ForEach(months, id: \.self) { month in
@@ -105,14 +106,15 @@ struct BudgetEntryView: View {
                         .padding(.horizontal)
                 }
                 
-                Spacer(minLength: 20)
+                Spacer()
                 
                 NavigationLink(destination: BudgetHistoryView()) {
                     Text("View Budget History")
                 }
+               
             }
             .padding()
-            Spacer()
+          //  Spacer()
         }
     }
 }

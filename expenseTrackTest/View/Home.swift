@@ -20,7 +20,7 @@ struct HomeView: View {
                 
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
                     .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width: 400, height: 250)
+                    .frame(width: 400, height: 230)
                     .rotationEffect(.degrees(180))
                     .offset(y: -60)
                     .overlay(
@@ -74,7 +74,7 @@ struct CardView2: View {
                 .font(.largeTitle)
                 .foregroundColor(.white)
         }
-        .frame(width: 350, height: 120)
+        .frame(width: 350, height: 110)
         .background(cardColor)
         .cornerRadius(15)
         .padding()
