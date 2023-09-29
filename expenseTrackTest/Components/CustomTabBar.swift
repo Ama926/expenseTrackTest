@@ -9,9 +9,10 @@ import SwiftUI
 
 enum Tabs: Int {
     case home = 0
-    case report = 1
+    case records = 1
     case add = 2
-    case profile = 3
+    case report = 3
+    case profile = 4
 }
 
 struct CustomTabBar: View {
@@ -20,7 +21,7 @@ struct CustomTabBar: View {
 
     var body: some View {
         HStack (spacing: 30) {
-
+            
             Button {
                 //expense
                 selectedTabs = .home
@@ -30,6 +31,7 @@ struct CustomTabBar: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(.white)
                     Text("Expense")
                         .font(Font.footnote)
                 }
@@ -37,13 +39,14 @@ struct CustomTabBar: View {
             
             Button {
                 //report
-                selectedTabs = .report
+                selectedTabs = .records
             } label: {
                 VStack (alignment: .center, spacing: 4) {
                     Image(systemName: "chart.bar.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(.white)
                     Text("Report")
                         .font(Font.footnote)
                 }
@@ -58,7 +61,23 @@ struct CustomTabBar: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(.white)
                     Text("Add")
+                        .font(Font.footnote)
+                }
+            }
+            
+            Button {
+                
+                selectedTabs = .report
+            } label: {
+                VStack (alignment: .center, spacing: 4) {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.white)
+                    Text("Report")
                         .font(Font.footnote)
                 }
             }
@@ -68,10 +87,11 @@ struct CustomTabBar: View {
                 selectedTabs = .profile
             } label: {
                 VStack (alignment: .center, spacing: 4) {
-                    Image(systemName: "person.crop.circle")
+                    Image(systemName: "chart.bar.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
+                        .foregroundColor(.white)
                     Text("Profile")
                         .font(Font.footnote)
                 }

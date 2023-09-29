@@ -46,21 +46,28 @@ struct ContentView: View {
             AuthView()
         }else {
             TabView(selection: $selectedTab){
+                
                 HomeView()
                     .tabItem {
-                        Label("Home", systemImage: "house.fill")
+                        Label("Summary", systemImage: "house.fill")
                 }
                     .tag(Tabs.home)
                 
                 ListView()
                     .tabItem {
-                        Label("List", systemImage: "phone.fill")
+                        Label("Records", systemImage: "chart.bar.fill")
+                }
+                    .tag(Tabs.records)
+                
+                AddNewExpenses()
+                    .tabItem {
+                        Label("Add", systemImage: "plus.circle.fill")
                 }
                     .tag(Tabs.add)
                 
                 ExpensePieChartView()
                     .tabItem {
-                        Label("Report", systemImage: "house.fill")
+                        Label("Report", systemImage: "chart.bar.fill")
                 }
                     .tag(Tabs.report)
                 
@@ -70,7 +77,7 @@ struct ContentView: View {
                 }
                     .tag(Tabs.profile)
             }
-            
+          //  Color.white
         }
         
     }

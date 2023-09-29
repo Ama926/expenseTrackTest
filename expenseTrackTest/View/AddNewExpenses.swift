@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct AddNewExpenses: View {
+
     @EnvironmentObject var allTypesManager: AllTypesManager
     @State private var selectedDate = Date()
     @State private var type = ""
@@ -53,14 +54,42 @@ struct AddNewExpenses: View {
 //                        }
 
                     DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 1)
+                                .foregroundColor(.black)
+                        )
+                        .padding(.horizontal)
+                        
 
                     TextField("Remark", text: $remark)
+//                        .foregroundColor(.black)
+//                        .textFieldStyle(.plain)
                         .foregroundColor(.black)
-                        .textFieldStyle(.plain)
+                        .font(.title3)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 1)
+                                .foregroundColor(.black)
+                        )
+                        .padding(.horizontal)
                         
                     TextField("Amount", text: $amount)
                         .foregroundColor(.black)
-                        .textFieldStyle(.plain)
+                        .font(.title3)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 1)
+                                .foregroundColor(.black)
+                        )
+                        .padding(.horizontal)
                 }
 
                // Section {
@@ -69,12 +98,14 @@ struct AddNewExpenses: View {
                     }) {
                         Text("SAVE")
                             .bold()
-                            .frame(width: 200, height: 40)
+                            .frame(maxWidth: .infinity, maxHeight: 75)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .fill(.linearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottomTrailing))
+//                                    .fill(.linearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottomTrailing))
+                                    .fill(Color.black)
                             )
                             .foregroundColor(.white)
+                            
                     }
                     
               //  }
@@ -112,7 +143,6 @@ struct AddNewExpenses: View {
             amount = ""
             selectedDate = Date()
         } else {
-            
             print("Invalid amount format")
         }
     }

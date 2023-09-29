@@ -52,7 +52,7 @@ struct CardView: View {
         }
                             .background(Color.white)
                             .cornerRadius(10)
-                            .shadow(radius: 1)
+                            //.shadow(radius: 1)
                             .padding(.vertical, 10)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
