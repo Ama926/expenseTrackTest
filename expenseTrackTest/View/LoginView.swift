@@ -7,6 +7,187 @@
 
 import SwiftUI
 import FirebaseAuth
+//
+//struct LoginView: View {
+//    @Binding var currentShowingView: String
+//    @AppStorage("uid") var userID: String = ""
+//
+//    @State private var email: String = ""
+//    @State private var password: String = ""
+//
+//    @State private var showError = false
+//    @State private var errorMessage = ""
+//
+//    func showErrorAlert(message: String) {
+//        errorMessage = message
+//        showError = true
+//    }
+//
+//
+//
+//
+//    var body: some View {
+//        ZStack{
+//          //  Color.white.edgesIgnoringSafeArea(.all)
+//            Color.black
+//
+//            RoundedRectangle(cornerRadius: 30, style: .continuous)
+//                .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+//                .frame(width: 1000, height: 400)
+//                .rotationEffect(.degrees(135))
+//                .offset(y: -350)
+//
+//            VStack(spacing: 20){
+//                Text("Welcome")
+//                    .foregroundColor(.white)
+//                    .font(.system(size: 40, weight: .bold, design: .rounded))
+//                    .offset(x: -100, y: -100)
+//
+//                //Image(systemName: "mail")
+//                TextField("Email", text: $email)
+//                    .foregroundColor(.white)
+//                    .textFieldStyle(.plain)
+//                    .placeholder(when: email.isEmpty){
+//                        Text("Email")
+//                            .foregroundColor(.white)
+//                            .bold()
+//
+//                    }
+//
+//                Rectangle()
+//                    .frame(width: 350, height: 1)
+//                    .foregroundColor(.white)
+//
+////                SecureField("Password", text: $password)
+////                    .foregroundColor(.white)
+////                    .textFieldStyle(.plain)
+////                    .placeholder(when: password.isEmpty){
+////                        Text("Password")
+////                            .foregroundColor(.white)
+////                            .bold()
+////                    }
+//
+//                TextField("Password", text: $password)
+//                    .foregroundColor(.white)
+//                    .textFieldStyle(.plain)
+//                    .placeholder(when: email.isEmpty){
+//                        Text("Password")
+//                            .foregroundColor(.white)
+//                            .bold()
+//
+//                    }
+//
+//
+//                Rectangle()
+//                    .frame(width: 350, height: 1)
+//                    .foregroundColor(.white)
+//
+//                Button{
+//                    //login
+//                    Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                        if let error = error {
+//                            print(error)
+//                            showErrorAlert(message: error.localizedDescription)
+//
+//                            return
+//                        }
+//
+//                        if let authResult = authResult{
+//                            print(authResult.user.uid)
+//                            withAnimation{
+//                                userID = authResult.user.uid
+//                            }
+//                        }
+//
+//                    }
+//
+//                } label : {
+//                    Text("LOGIN")
+//                        .bold()
+//                        .frame(width: 200, height: 40)
+//                        .background(
+//                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+//                                .fill(.linearGradient(colors: [.pink, .red], startPoint: .top, endPoint: .bottomTrailing))
+//                        )
+//                        .foregroundColor(.white)
+//                }
+//
+//                .padding(.top)
+//                .offset(y: 100)
+//
+//                Button(action: {
+//                    withAnimation{
+//                        self.currentShowingView = "signup"
+//                    }
+//                }){
+//                    Text("Don't have an account?")
+//                        .foregroundColor(.white.opacity(0.7))
+//                }
+//
+//
+//                .padding(.top)
+//                .offset(y: 110)
+//
+//            }
+//
+//            .frame(width: 350)
+//
+//
+////            VStack{
+////
+////                Button{
+////                    Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+////                        if let error = error {
+////                            print(error)
+////                            return
+////                        }
+////
+////                        if let authResult = authResult{
+////                            print(authResult.user.uid)
+////                            withAnimation{
+////                                userID = authResult.user.uid
+////                            }
+////                        }
+////
+////                    }
+////
+////                } label: {
+////                    Text("Sign In")
+////                        .foregroundColor(.white)
+////                        .font(.title3)
+////                        .bold()
+////
+////                        .frame(maxWidth: .infinity)
+////                        .padding()
+////
+////                        .background(
+////                            RoundedRectangle(cornerRadius: 10)
+////                                .fill(Color.black)
+////                        )
+////                        .padding(.horizontal)
+////                }
+////            }
+//
+//
+//        }
+//
+//        .ignoresSafeArea()
+//    }
+//}
+//
+//extension View {
+//    func placeholder<Content: View>(
+//        when shouldShow: Bool,
+//        alignment: Alignment = .leading,
+//        @ViewBuilder placeholder: () -> Content)-> some View {
+//            ZStack(alignment: alignment) {
+//                placeholder().opacity(shouldShow ? 1 : 0)
+//                self
+//            }
+//        }
+//
+//
+//}
 
 struct LoginView: View {
     @Binding var currentShowingView: String
@@ -14,105 +195,127 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    
+    @State private var showError = false
+    @State private var errorMessage = ""
+
+    func showErrorAlert(message: String) {
+        errorMessage = message
+        showError = true
+    }
+
     var body: some View {
         ZStack{
-            Color.white.edgesIgnoringSafeArea(.all)
+            Color.black
             
-            VStack{
-                HStack{
-                    Text("Welcome Back")
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    Spacer()
-                }
-                .padding()
-                .padding(.top)
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .frame(width: 1000, height: 400)
+                .rotationEffect(.degrees(135))
+                .offset(y: -350)
+            
+            VStack(spacing: 20){
+                Text("Welcome")
+                    .foregroundColor(.white)
+                    .font(.system(size: 40, weight: .bold, design: .rounded))
+                    .offset(x: -100, y: -100)
                 
-                Spacer()
-                
-                HStack{
-                    Image(systemName: "mail")
-                    TextField("Email", text: $email)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "checkmark")
-                        .foregroundColor(.green)
-                        //.fontWeight(.bold)
-                }
-                .padding()
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.black)
-                )
-                .padding()
-                
-                HStack{
-                    Image(systemName: "lock")
-                    TextField("Password", text: $password)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "checkmark")
-                        .foregroundColor(.green)
-                        //.fontWeight(.bold)
-                }
-                .padding()
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.black)
-                )
-                .padding()
-                
-                Button(action: {
-                    withAnimation{
-                        self.currentShowingView = "signup"
+                TextField("Email", text: $email)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: email.isEmpty){
+                        Text("Email")
+                            .foregroundColor(.white)
+                            .bold()
                     }
-                }){
-                    Text("Don't have an account?")
-                        .foregroundColor(.black.opacity(0.7))
-                }
-                Spacer()
-                Spacer()
                 
-                Button{
+                Rectangle()
+                    .frame(width: 350, height: 1)
+                    .foregroundColor(.white)
+                
+                TextField("Password", text: $password)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: email.isEmpty){
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                    
+                Rectangle()
+                    .frame(width: 350, height: 1)
+                    .foregroundColor(.white)
+                
+                Button {
+                    // Login
                     Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                         if let error = error {
                             print(error)
+                            showErrorAlert(message: error.localizedDescription)
                             return
                         }
                         
-                        if let authResult = authResult{
+                        if let authResult = authResult {
                             print(authResult.user.uid)
-                            withAnimation{
+                            withAnimation {
                                 userID = authResult.user.uid
                             }
                         }
-                        
                     }
-                
                 } label: {
-                    Text("Sign In")
-                        .foregroundColor(.white)
-                        .font(.title3)
+                    Text("LOGIN")
                         .bold()
-                    
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                    
+                        .frame(width: 200, height: 40)
                         .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.black)
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(.linearGradient(colors: [.pink, .red], startPoint: .top, endPoint: .bottomTrailing))
                         )
-                        .padding(.horizontal)
+                        .foregroundColor(.white)
                 }
+                .padding(.top)
+                .offset(y: 100)
+                
+                Button(action: {
+                    withAnimation {
+                        self.currentShowingView = "signup"
+                    }
+                }) {
+                    Text("Don't have an account?")
+                        .foregroundColor(.white.opacity(0.7))
+                }
+                .padding(.top)
+                .offset(y: 110)
             }
+            .frame(width: 350)
             
-            
+            if showError {
+                // Show error alert
+                Text("Error")
+                    .hidden()
+                    .alert(isPresented: $showError) {
+                        Alert(
+                            title: Text("Error"),
+                            message: Text(errorMessage),
+                            dismissButton: .default(Text("OK")) {
+                                showError = false
+                            }
+                        )
+                    }
+            }
         }
+        .ignoresSafeArea()
     }
 }
 
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content
+    ) -> some View {
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+}

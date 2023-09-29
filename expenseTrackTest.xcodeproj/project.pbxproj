@@ -33,6 +33,8 @@
 		814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */; };
 		814C43D82AC1EF17005194D8 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D72AC1EF17005194D8 /* ListView.swift */; };
 		814C43DA2AC1F88C005194D8 /* AddNewExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */; };
+		81EFC3D02AC6AADC00BF5151 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EFC3CF2AC6AADC00BF5151 /* SplashScreenView.swift */; };
+		81EFC3D22AC6AF9500BF5151 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81EFC3D12AC6AF9500BF5151 /* Launch Screen.storyboard */; };
 		81F707D22AC5B72D00DA348C /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D12AC5B72C00DA348C /* Budget.swift */; };
 		81F707D42AC5B77F00DA348C /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D32AC5B77F00DA348C /* FirestoreService.swift */; };
 		81F707D62AC5B9AB00DA348C /* BudgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707D52AC5B9AB00DA348C /* BudgetEntryView.swift */; };
@@ -90,6 +92,8 @@
 		814C43D52AC1DE9B005194D8 /* AllTypesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTypesManager.swift; sourceTree = "<group>"; };
 		814C43D72AC1EF17005194D8 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		814C43D92AC1F88C005194D8 /* AddNewExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExpenses.swift; sourceTree = "<group>"; };
+		81EFC3CF2AC6AADC00BF5151 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		81EFC3D12AC6AF9500BF5151 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81F707D12AC5B72C00DA348C /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		81F707D32AC5B77F00DA348C /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		81F707D52AC5B9AB00DA348C /* BudgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetEntryView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				811CEE5A2ABF686C00A0C1FB /* ContentView.swift */,
 				811CEE5C2ABF686F00A0C1FB /* Assets.xcassets */,
 				811CEE5E2ABF686F00A0C1FB /* Preview Content */,
+				81EFC3D12AC6AF9500BF5151 /* Launch Screen.storyboard */,
 			);
 			path = expenseTrackTest;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				81F707D72AC5BC3F00DA348C /* BudgetHistoryView.swift */,
 				81F707DD2AC5E80D00DA348C /* PieChartView.swift */,
 				81F707DF2AC5E89100DA348C /* ExpensePieChartView.swift */,
+				81EFC3CF2AC6AADC00BF5151 /* SplashScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 			files = (
 				811CEE602ABF686F00A0C1FB /* Preview Assets.xcassets in Resources */,
 				811CEE5D2ABF686F00A0C1FB /* Assets.xcassets in Resources */,
+				81EFC3D22AC6AF9500BF5151 /* Launch Screen.storyboard in Resources */,
 				811CEE972ABF749D00A0C1FB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +392,7 @@
 				814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */,
 				814C43D82AC1EF17005194D8 /* ListView.swift in Sources */,
 				814C43C82AC0AF27005194D8 /* FirestoreManager.swift in Sources */,
+				81EFC3D02AC6AADC00BF5151 /* SplashScreenView.swift in Sources */,
 				814C43C32AC0AAF0005194D8 /* UserProfileView.swift in Sources */,
 				811CEE912ABF6CA100A0C1FB /* SignUpView.swift in Sources */,
 				814C43C12AC0AAD2005194D8 /* ReportView.swift in Sources */,
@@ -492,6 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -547,6 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
