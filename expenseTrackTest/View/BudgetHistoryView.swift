@@ -17,8 +17,10 @@ struct BudgetHistoryView: View {
                 ForEach(budgets, id: \.month) { budget in
                     CardView(budget: budget)
                 }
+
             }
             .padding()
+
         }
         .onAppear{
             //fetch
@@ -45,13 +47,19 @@ struct CardView: View {
                                 Text("$\(amount, specifier: "%.2f")")
                             }
                         }
-                .padding(.vertical, 5)
+                .padding(.vertical, 10)
                          
         }
                             .background(Color.white)
                             .cornerRadius(10)
-                            .shadow(radius: 3)
+                            .shadow(radius: 1)
                             .padding(.vertical, 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.black)
+                            )
+                            .padding()
     }
 }
 

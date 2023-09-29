@@ -111,7 +111,7 @@ struct BudgetEntryView: View {
                     Text("View Budget History")
                 }
             }
-            
+            .padding()
             Spacer()
         }
     }
