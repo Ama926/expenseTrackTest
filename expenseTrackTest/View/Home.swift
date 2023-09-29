@@ -84,7 +84,7 @@ struct CardView2: View {
             Text(title)
                 .font(.headline)
                 .foregroundColor(.white)
-            Text(String(format: "$%.2f", amount))
+            Text(String(format: "%.2f LKR", amount))
                 .font(.largeTitle)
                 .foregroundColor(.white)
         }
