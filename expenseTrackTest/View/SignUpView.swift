@@ -7,121 +7,247 @@
 
 import SwiftUI
 import FirebaseAuth
-//import Firebase
+
+//
+//struct SignUpView: View {
+//    @Binding var currentShowingView: String
+//    @AppStorage("uid") var userID: String = ""
+//    @State private var email: String = ""
+//    @State private var password: String = ""
+//
+//    var body: some View {
+//        ZStack{
+//            Color.black.edgesIgnoringSafeArea(.all)
+//
+//            VStack{
+//                HStack{
+//                    Text("Create an Account")
+//                        .foregroundColor(.white)
+//                        .font(.largeTitle)
+//                        .bold()
+//
+//                    Spacer()
+//                }
+//                .padding()
+//                .padding(.top)
+//
+//                Spacer()
+//
+//                HStack{
+//                    Image(systemName: "mail")
+//                    TextField("Email", text: $email)
+//
+//                    Spacer()
+//
+//                    Image(systemName: "checkmark")
+//                        .foregroundColor(.green)
+//                        //.fontWeight(.bold)
+//                }
+//                .foregroundColor(.white)
+//                .padding()
+//                .overlay(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .stroke(lineWidth: 2)
+//                            .foregroundColor(.white)
+//                )
+//                .padding()
+//
+//                HStack{
+//                    Image(systemName: "lock")
+//                    TextField("Password", text: $password)
+//
+//                    Spacer()
+//
+//                    Image(systemName: "checkmark")
+//                        .foregroundColor(.green)
+//                        //.fontWeight(.bold)
+//                }
+//                .foregroundColor(.white)
+//                .padding()
+//                .overlay(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .stroke(lineWidth: 2)
+//                            .foregroundColor(.white)
+//                )
+//                .padding()
+//
+//                Button(action: {
+//                    withAnimation{
+//                        self.currentShowingView = "login"
+//                    }
+//                }){
+//                    Text("Already have an account?")
+//                        .foregroundColor(.gray)
+//                }
+//                Spacer()
+//                Spacer()
+//
+//                Button{
+//
+//                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//                        if let error = error{
+//                            print(error)
+//                            return
+//                        }
+//
+//                        if let authResult = authResult{
+//                            print(authResult.user.uid)
+//                            userID = authResult.user.uid
+//
+//                        }
+//
+//                    }
+//
+//                } label: {
+//                    Text("Create New Account")
+//                        .foregroundColor(.black)
+//                        .font(.title3)
+//                        .bold()
+//
+//                        .frame(maxWidth: .infinity)
+//                        .padding()
+//
+//                        .background(
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(Color.white)
+//                        )
+//                        .padding(.horizontal)
+//                }
+//            }
+//
+//
+//        }
+//    }
+//}
+//
+//
 
 struct SignUpView: View {
+
     @Binding var currentShowingView: String
     @AppStorage("uid") var userID: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
-    
-//    init() {
-//        FirebaseApp.configure()
-//    }
-//
+
+    @State private var showError = false
+    @State private var errorMessage = ""
+
+    func showErrorAlert(message: String) {
+        errorMessage = message
+        showError = true
+    }
+
     var body: some View {
         ZStack{
-            Color.black.edgesIgnoringSafeArea(.all)
+            Color.black
             
-            VStack{
-                HStack{
-                    Text("Create an Account")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    Spacer()
-                }
-                .padding()
-                .padding(.top)
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .frame(width: 1000, height: 400)
+                .rotationEffect(.degrees(135))
+                .offset(y: -350)
+            
+            VStack(spacing: 20){
+                Text("Sign up!")
+                    .foregroundColor(.white)
+                    .font(.system(size: 40, weight: .bold, design: .rounded))
+                    .offset(x: -100, y: -100)
                 
-                Spacer()
-                
-                HStack{
-                    Image(systemName: "mail")
-                    TextField("Email", text: $email)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "checkmark")
-                        .foregroundColor(.green)
-                        //.fontWeight(.bold)
-                }
-                .foregroundColor(.white)
-                .padding()
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 2)
+                TextField("Email", text: $email)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: email.isEmpty){
+                        Text("Email")
                             .foregroundColor(.white)
-                )
-                .padding()
-                
-                HStack{
-                    Image(systemName: "lock")
-                    TextField("Password", text: $password)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "checkmark")
-                        .foregroundColor(.green)
-                        //.fontWeight(.bold)
-                }
-                .foregroundColor(.white)
-                .padding()
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.white)
-                )
-                .padding()
-                
-                Button(action: {
-                    withAnimation{
-                        self.currentShowingView = "login"
+                            .bold()
                     }
-                }){
-                    Text("Already have an account?")
-                        .foregroundColor(.gray)
-                }
-                Spacer()
-                Spacer()
                 
-                Button{
+                Rectangle()
+                    .frame(width: 350, height: 1)
+                    .foregroundColor(.white)
+                
+                TextField("Password", text: $password)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: email.isEmpty){
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
                     
+                Rectangle()
+                    .frame(width: 350, height: 1)
+                    .foregroundColor(.white)
+                
+                Button {
+                    // signup
                     Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                         if let error = error{
-                            print(error)
+                        print(error)
                             return
                         }
 
                         if let authResult = authResult{
                             print(authResult.user.uid)
                             userID = authResult.user.uid
-                            
+
                         }
-                        
                     }
-                
                 } label: {
-                    Text("Create New Account")
-                        .foregroundColor(.black)
-                        .font(.title3)
+                    Text("SIGN UP")
                         .bold()
-                    
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                    
+                        .frame(width: 200, height: 40)
                         .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.white)
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(.linearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottomTrailing))
                         )
-                        .padding(.horizontal)
+                        .foregroundColor(.white)
                 }
+                .padding(.top)
+                .offset(y: 100)
+                
+                Button(action: {
+                    withAnimation {
+                        self.currentShowingView = "login"
+                    }
+                }) {
+                    Text("Already have an account? Login ")
+                        .foregroundColor(.white.opacity(0.7))
+                }
+                .padding(.top)
+                .offset(y: 110)
             }
+            .frame(width: 350)
             
-            
+            if showError {
+                // Show error alert
+                Text("Error")
+                    .hidden()
+                    .alert(isPresented: $showError) {
+                        Alert(
+                            title: Text("Error"),
+                            message: Text(errorMessage),
+                            dismissButton: .default(Text("OK")) {
+                                showError = false
+                            }
+                        )
+                    }
+            }
         }
+        .ignoresSafeArea()
     }
-}
-
-
+    }
+//
+//    extension View {
+//    func placeholder<Content: View>(
+//        when shouldShow: Bool,
+//        alignment: Alignment = .leading,
+//        @ViewBuilder placeholder: () -> Content
+//    ) -> some View {
+//        ZStack(alignment: alignment) {
+//            placeholder().opacity(shouldShow ? 1 : 0)
+//            self
+//        }
+//    }
+//
+//}
