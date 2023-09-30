@@ -31,40 +31,6 @@ struct BudgetHistoryView: View {
     }
 }
 
-//struct CardView: View {
-//    let budget: Budget
-//
-//    var body: some View {
-//        VStack {
-//            Text(budget.month)
-//                .font(.title)
-//                .fontWeight(.bold)
-//
-//            ForEach(budget.categories.sorted(by: <), id: \.key) { category, amount in
-//                            HStack {
-//                                Text(category)
-//                                Spacer()
-//                                Text("$\(amount, specifier: "%.2f")")
-//                            }
-//                        }
-//                .padding(.vertical, 10)
-//
-//        }
-//                            .background(Color.white)
-//                            .cornerRadius(10)
-//                            //.shadow(radius: 1)
-//                            .padding(.vertical, 5)
-//                            .overlay(
-//                                RoundedRectangle(cornerRadius: 10)
-//                                    .stroke(lineWidth: 2)
-//                                    .foregroundColor(.black)
-//                            )
-//                            .padding()
-//    }
-//}
-//
-//
-
 struct CardView: View {
     let budget: Budget
     

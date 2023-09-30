@@ -5,26 +5,6 @@
 //  Created by Ama Ranasi on 2023-09-25.
 //
 
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
-//
-//struct Expense: Identifiable, Decodable {
-//    @DocumentID var id: String?
-//    let type: String
-//    let remark: String
-//    let amount: Double
-//    let category: String
-//    let date: Timestamp // Use Firestore Timestamp for date
-//
-//    // Other properties and initializers, if needed
-//
-//    // If you want to convert Firestore Timestamp to Swift Date, you can add a computed property like this:
-//    var dateAsSwiftDate: Date {
-//        return date.dateValue()
-//
-//    }
-//}
-
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
@@ -40,8 +20,7 @@ struct Expense: Identifiable, Decodable {
         guard let data = document.data() else {
             return nil
         }
-
-        // Initialize properties from data dictionary
+        
         guard let type = data["type"] as? String,
               let remark = data["remark"] as? String,
               let amount = data["amount"] as? Double,
@@ -58,9 +37,6 @@ struct Expense: Identifiable, Decodable {
         self.date = date
     }
     
-    // Other properties and initializers, if needed
-
-    // If you want to convert Firestore Timestamp to Swift Date, you can add a computed property like this:
     var dateAsSwiftDate: Date {
         return date.dateValue()
     }

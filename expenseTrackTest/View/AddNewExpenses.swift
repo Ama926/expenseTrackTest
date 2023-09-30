@@ -16,11 +16,11 @@ struct AddNewExpenses: View {
     @State private var category = ""
     @State private var remark = ""
     @State private var amount = ""
-    @State private var isShowingListView = false // State to control navigation
+    @State private var isShowingListView = false
 
     let typeOptions = ["Income", "Expense"]
     let categoryOptions = ["Transport", "Food", "Utilities", "Education", "Income"]
-    @State private var selectedType = "Income" // Initial selection
+    @State private var selectedType = "Income"
     @State private var selectedCategory = "Transport"
     
     var body: some View {
@@ -101,7 +101,6 @@ struct AddNewExpenses: View {
                     }
                     
                 }
-      //      }
             
             .navigationBarTitle("Add New Expenses")
             .sheet(isPresented: $isShowingListView, content: {

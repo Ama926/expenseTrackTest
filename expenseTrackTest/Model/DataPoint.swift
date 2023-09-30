@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct DataPoint: Identifiable {
-    var id = UUID() // You can use a unique identifier for each data point
+    var id = UUID() 
     var category: String
     var value: Double
     var color: Color

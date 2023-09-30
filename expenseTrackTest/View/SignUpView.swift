@@ -106,7 +106,7 @@ struct SignUpView: View {
             .frame(width: 350)
             
             if showError {
-                // Show error alert
+                //  error alert
                 Text("Error")
                     .hidden()
                     .alert(isPresented: $showError) {

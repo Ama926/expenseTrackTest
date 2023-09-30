@@ -33,7 +33,6 @@ class AllTypesManager: ObservableObject {
                     let type = data["type"] as? String ?? ""
                     let remark = data["remark"] as? String ?? ""
                     
-                    // Parse the date field as Timestamp and convert it to Date
                     let timestamp = data["date"] as? Timestamp ?? Timestamp()
                     let date = self.dateFromTimestamp(timestamp)
                     

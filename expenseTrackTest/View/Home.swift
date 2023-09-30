@@ -43,16 +43,14 @@ struct HomeView: View {
             }
             .padding()
         }
-        //.ignoresSafeArea()
     }
-        
 }
 
 struct CardView2: View {
     var title: String
     var amount: Double
     var cardColor: Color
-    var iconSystemName: String // The SF Symbol name for the icon
+    var iconSystemName: String
     
     init(title: String, amount: Double,cardColor: Color, iconSystemName: String) {
         self.title = title
@@ -64,7 +62,7 @@ struct CardView2: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: iconSystemName) // Add the SF Symbol for the icon
+                Image(systemName: iconSystemName) 
                     .font(.title)
                     .foregroundColor(cardColor)
                 Text(title)

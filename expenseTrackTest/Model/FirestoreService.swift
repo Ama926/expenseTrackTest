@@ -11,7 +11,6 @@ import Combine
 class FirestoreService {
     private let db = Firestore.firestore()
     
-    //fnc to save budget data to fb
     func saveBudget(month: String, categories: [String: Double]){
         let budgetData: [String: Any] = [
             "month": month,
@@ -36,7 +35,6 @@ class FirestoreService {
                 return Budget(month: month, categories: categories)
                 
             }
-            
             completion(budgets)
         }
     }

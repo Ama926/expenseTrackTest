@@ -21,17 +21,6 @@ class ContentViewModel: ObservableObject {
     func signOut() {
             
         self.currentShowingView = "login"
-//                let firebaseAuth = Auth.auth()
-//                do {
-//                  try firebaseAuth.signOut()
-//                    print("signout")
-//                    self.currentShowingView = "login"
-//
-//                } catch let signOutError as NSError {
-//                  print("Error signing out: %@", signOutError)
-//                }
-             
-            
         }
 }
 

@@ -54,11 +54,6 @@ struct ListView: View {
                     }
                     .navigationTitle("All Records")
                     
-//                    .navigationBarItems(trailing: Button(action: {
-//                        isAddingNewExpense.toggle()
-//                    }) {
-//                        Image(systemName: "plus")
-//                    })
                     .sheet(isPresented: $isAddingNewExpense) {
                         NavigationView {
                             AddNewExpenses()
@@ -81,7 +76,7 @@ struct ListView: View {
 
         switch selectedTab {
         case .currentWeek:
-            // Calculate the start date and end date of the current week
+           
             if let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate)),
                let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) {
                 
@@ -94,7 +89,7 @@ struct ListView: View {
                             let category = allTypes.category as? String,
                             let remark = allTypes.remark as? String
                         else {
-                            // Print an error or add some error handling here
+                           
                             return nil
                         }
 
@@ -108,10 +103,10 @@ struct ListView: View {
                         )
                     }
                     .filter { expenses in
-                        return startOfWeek...endOfWeek ~= expenses.date // Filter by date range for the current week
+                        return startOfWeek...endOfWeek ~= expenses.date
                     }
             } else {
-                return [] // Return an empty array if the calculation fails
+                return []
             }
             
         case .currentMonth:
@@ -127,7 +122,7 @@ struct ListView: View {
                         let category = allTypes.category as? String,
                         let remark = allTypes.remark as? String
                     else {
-                        // Print an error or add some error handling here
+                        
                         return nil
                     }
 
@@ -158,7 +153,7 @@ struct ListView: View {
                         let category = allTypes.category as? String,
                         let remark = allTypes.remark as? String
                     else {
-                        // Print an error or add some error handling here
+                        
                         return nil
                     }
 

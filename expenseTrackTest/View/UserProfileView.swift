@@ -32,31 +32,12 @@ struct UserProfileView: View {
                 
                 Spacer()
                         
-    //                    Button(action: {
-    //                        // Navigate to budget View
-    //                        isBudgetHistoryViewPresented.toggle()
-    //                    }) {
-    //                        Text("Add Budget")
-    //                            .foregroundColor(.green)
-    //                            .font(.title3)
-    //                            .bold()
-    //                            .frame(maxWidth: .infinity)
-    //                            .padding()
-    //                            .overlay(
-    //                                RoundedRectangle(cornerRadius: 10)
-    //                                    .stroke(lineWidth: 2)
-    //                                    .foregroundColor(.green)
-    //                            )
-    //                            .padding(.horizontal)
-    //                    }
-    //                    .buttonStyle(PlainButtonStyle()) // Remove the default button style
-
                     Button(action: {
                         // Navigate to budget View
                         isBudgetHistoryViewPresented.toggle()
                     }) {
                         HStack {
-                            Image(systemName: "dollarsign.circle.fill") // Replace "dollarsign.circle.fill" with your desired system name
+                            Image(systemName: "dollarsign.circle.fill")
                                 .foregroundColor(.green)
                                 .font(.title3)
                             Text("Add Budget")
@@ -73,15 +54,14 @@ struct UserProfileView: View {
                         )
                         .padding(.horizontal)
                     }
-                    .buttonStyle(PlainButtonStyle()) // Remove the default button style
-
-                    //
+                    .buttonStyle(PlainButtonStyle())
+                
                     Button(action: {
                         // Navigate to budget View
                         isAddCategoryViewPresented.toggle()
                     }) {
                         HStack {
-                            Image(systemName: "plus.circle.fill") // Replace "dollarsign.circle.fill" with your desired system name
+                            Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.blue)
                                 .font(.title3)
                             Text("Add Categories")
@@ -98,13 +78,9 @@ struct UserProfileView: View {
                         )
                         .padding(.horizontal)
                     }
-                    .buttonStyle(PlainButtonStyle()) // Remove the default button style
-
-                
-                      
-                
+                    .buttonStyle(PlainButtonStyle())
+  
                         Spacer()
-                    
                 
                         Button(action: {
                             viewModel.signOut()
@@ -129,9 +105,7 @@ struct UserProfileView: View {
                             .foregroundColor(.white)
                            // .cornerRadius(10)
                         }
-                        //.buttonStyle(PlainButtonStyle()) // Remove the default button style
-                //    }
-              //  }
+
                 .background(Color.white)
                 Spacer()
             }
@@ -159,7 +133,6 @@ struct UserProfileView: View {
                 })
             }
                 }
-        
     }
 }
 
