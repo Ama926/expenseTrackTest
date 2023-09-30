@@ -25,37 +25,29 @@ struct AddNewExpenses: View {
     
     var body: some View {
         NavigationView {
-            Form {
+        Form {
                
-                Section(header: Text("Expense Details")) {
-                    Picker("Type", selection: $selectedType) {
-                        ForEach(typeOptions, id: \.self) { option in
-                            Text(option)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .padding()
+            Section(header: Text("Expense Details")) {
+                                Picker("Type", selection: $selectedType) {
+                                    ForEach(typeOptions, id: \.self) { option in
+                                        Text(option)
+                                    }
+                                }
+                                .pickerStyle(MenuPickerStyle())
+                                .padding()
                     
                     Picker("Category", selection: $selectedCategory){
                         ForEach(categoryOptions, id:\.self){ option in
                             Text(option)
                         }
                     }
+                    
                     .pickerStyle(MenuPickerStyle())
                     .padding()
 
-//                    TextField("Category", text: $category)
-//                        .foregroundColor(.black)
-//                        .textFieldStyle(.plain)
-//                        .placeholder(when: category.isEmpty) {
-//                            Text("Category")
-//                                .foregroundColor(.white)
-//                                .bold()
-//                        }
-
                     DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
                         .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, maxHeight: 75)
+                        .frame(maxWidth: .infinity, maxHeight: 50)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -70,7 +62,7 @@ struct AddNewExpenses: View {
 //                        .textFieldStyle(.plain)
                         .foregroundColor(.black)
                         .font(.title3)
-                        .frame(maxWidth: .infinity, maxHeight: 75)
+                        .frame(maxWidth: .infinity)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -82,7 +74,7 @@ struct AddNewExpenses: View {
                     TextField("Amount", text: $amount)
                         .foregroundColor(.black)
                         .font(.title3)
-                        .frame(maxWidth: .infinity, maxHeight: 75)
+                        .frame(maxWidth: .infinity)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
@@ -101,15 +93,14 @@ struct AddNewExpenses: View {
                             .frame(maxWidth: .infinity, maxHeight: 100)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-//                                    .fill(.linearGradient(colors: [.blue, .green], startPoint: .top, endPoint: .bottomTrailing))
                                     .fill(Color.black)
                             )
                             .foregroundColor(.white)
                             
                     }
                     
-              //  }
-            }
+                }
+      //      }
             
             .navigationBarTitle("Add New Expenses")
             .sheet(isPresented: $isShowingListView, content: {

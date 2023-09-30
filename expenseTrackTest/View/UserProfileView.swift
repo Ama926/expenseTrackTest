@@ -5,88 +5,13 @@
 //  Created by Ama Ranasi on 2023-09-24.
 //
 
-//import SwiftUI
-//
-//struct UserProfileView: View {
-//    @EnvironmentObject var viewModel: AuthViewModel
-//    @AppStorage("uid") var userID: String = ""
-//    @State private var isBudgetHistoryViewPresented = false
-//
-//    var body: some View {
-//        //if let user = $viewModel.currentUser {
-//            List {
-//                Section{
-//                    HStack{
-//                        Text("Hello")
-//                            .font(.title)
-//                            .foregroundColor(Color(.white))
-//                            .frame(width: 72, height: 72)
-//                            .background(Color(.systemGray))
-//                            .clipShape(Circle())
-//
-//                        VStack (alignment: .leading, spacing: 4){
-//                            Text("Ama")
-//                                .font(.subheadline)
-//                                .fontWeight(.semibold)
-//                                .padding(.top,4)
-//
-//                            Text("Ama")
-//                                .font(.footnote)
-//                                .foregroundColor(.gray)
-//                        }
-//                    }
-//                }
-//
-//                Button{
-//                    //navigate to budget View
-//                    isBudgetHistoryViewPresented.toggle()
-//
-//                } label : {
-//                    Text("Add Budget")
-//                }
-//
-//                .padding()
-//
-//
-//                    Button {
-//                        viewModel.signOut()
-//                    } label: {
-//                        HStack {
-//                            Image(systemName: "arrow.left.circle.fill")
-//                                .foregroundColor(.red)
-//                            Text("Sign Out")
-//                        }
-//                    }
-//
-//
-//            }
-//
-//            .sheet(isPresented: $isBudgetHistoryViewPresented) {
-//                            NavigationView { // Embed BudgetHistoryView in a NavigationView
-//                                BudgetEntryView()
-//                                    .navigationBarTitle("Budget History", displayMode: .inline)
-//                                    .navigationBarItems(trailing: Button("Close") {
-//                                        isBudgetHistoryViewPresented.toggle()
-//                                    })
-//                            }
-//                        }
-//    }
-//}
-//
-//
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserProfileView()
-//    }
-//}
-
-
 import SwiftUI
 
 struct UserProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @AppStorage("uid") var userID: String = ""
     @State private var isBudgetHistoryViewPresented = false
+    @State private var isAddCategoryViewPresented = false
     
     var body: some View {
         VStack {
@@ -103,31 +28,81 @@ struct UserProfileView: View {
                 .padding(.top, 5)
             
             Spacer()
-           
-     //       List {
-       //         Section {
                     
-                    Button(action: {
-                        // Navigate to budget View
-                        isBudgetHistoryViewPresented.toggle()
-                    }) {
+//                    Button(action: {
+//                        // Navigate to budget View
+//                        isBudgetHistoryViewPresented.toggle()
+//                    }) {
+//                        Text("Add Budget")
+//                            .foregroundColor(.green)
+//                            .font(.title3)
+//                            .bold()
+//                            .frame(maxWidth: .infinity)
+//                            .padding()
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(lineWidth: 2)
+//                                    .foregroundColor(.green)
+//                            )
+//                            .padding(.horizontal)
+//                    }
+//                    .buttonStyle(PlainButtonStyle()) // Remove the default button style
+
+                Button(action: {
+                    // Navigate to budget View
+                    isBudgetHistoryViewPresented.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "dollarsign.circle.fill") // Replace "dollarsign.circle.fill" with your desired system name
+                            .foregroundColor(.green)
+                            .font(.title3)
                         Text("Add Budget")
-                            .foregroundColor(.black)
+                            .foregroundColor(.green)
                             .font(.title3)
                             .bold()
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(.black)
-                            )
-                            .padding(.horizontal)
                     }
-                    .buttonStyle(PlainButtonStyle()) // Remove the default button style
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.green)
+                    )
+                    .padding(.horizontal)
+                }
+                .buttonStyle(PlainButtonStyle()) // Remove the default button style
+
+                //
+                Button(action: {
+                    // Navigate to budget View
+                    isAddCategoryViewPresented.toggle()
+                }) {
+                    HStack {
+                        Image(systemName: "plus.circle.fill") // Replace "dollarsign.circle.fill" with your desired system name
+                            .foregroundColor(.blue)
+                            .font(.title3)
+                        Text("Add Categories")
+                            .foregroundColor(.blue)
+                            .font(.title3)
+                            .bold()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.blue)
+                    )
+                    .padding(.horizontal)
+                }
+                .buttonStyle(PlainButtonStyle()) // Remove the default button style
+
+            
+                  
             
                     Spacer()
                 
+            
                     Button(action: {
                         viewModel.signOut()
                     }) {
@@ -136,14 +111,14 @@ struct UserProfileView: View {
 //                                .foregroundColor(.red)
 //                                .padding()
                             Text("Sign Out")
-                                .foregroundColor(.red)
+                                .foregroundColor(.white)
                                 .font(.title3)
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color.black)
+                                        .fill(Color.red)
                                 )
                                 .padding(.horizontal)
                       //  }
@@ -162,12 +137,25 @@ struct UserProfileView: View {
         .sheet(isPresented: $isBudgetHistoryViewPresented) {
             NavigationView {
                 BudgetEntryView()
-                    .navigationBarTitle("Budget History", displayMode: .inline)
+                    .navigationBarTitle("Budget", displayMode: .inline)
                     .navigationBarItems(trailing: Button("Close") {
                         isBudgetHistoryViewPresented.toggle()
                     })
             }
         }
+        
+        //isSheetPresented for AddCategories
+        .sheet(isPresented: $isAddCategoryViewPresented) {
+            NavigationView{
+                AddCategoryView()
+                    .navigationBarTitle("Add New Category", displayMode: .inline)
+                    .navigationBarItems(trailing: Button("Close") {
+                        isAddCategoryViewPresented.toggle()
+                        
+                })
+            }
+                }
+        
     }
 }
 

@@ -42,7 +42,10 @@ struct ExpensePieChartView: View {
     
     let categoryColors: [String: Color] = [
         "Transport": Color.blue,
-        "Food": Color.green,
+        "Food": Color.orange,
+        "Utilities": Color.red,
+        "Health": Color.yellow,
+        "Income": Color.green
         // Add more categories and colors as needed
     ]
     
@@ -54,6 +57,8 @@ struct ExpensePieChartView: View {
             HStack {
                 ForEach(Array(categoryColors.keys), id: \.self) { category in
                     HStack {
+//                        Text("Expenses Analytics")
+//                            .font(.title)
                         Circle()
                             .fill(categoryColors[category] ?? Color.black)
                             .frame(width: 10, height: 10)

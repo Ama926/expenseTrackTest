@@ -23,6 +23,7 @@
 		811CEE932ABF6CBA00A0C1FB /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CEE922ABF6CBA00A0C1FB /* AuthView.swift */; };
 		811CEE952ABF706300A0C1FB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811CEE942ABF706300A0C1FB /* Home.swift */; };
 		811CEE972ABF749D00A0C1FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 811CEE962ABF749D00A0C1FB /* GoogleService-Info.plist */; };
+		811E3C262AC807D700C3B48E /* AddCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811E3C252AC807D700C3B48E /* AddCategories.swift */; };
 		814C43C12AC0AAD2005194D8 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43C02AC0AAD1005194D8 /* ReportView.swift */; };
 		814C43C32AC0AAF0005194D8 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43C22AC0AAF0005194D8 /* UserProfileView.swift */; };
 		814C43C82AC0AF27005194D8 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814C43C72AC0AF27005194D8 /* FirestoreManager.swift */; };
@@ -82,6 +83,7 @@
 		811CEE922ABF6CBA00A0C1FB /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		811CEE942ABF706300A0C1FB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		811CEE962ABF749D00A0C1FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		811E3C252AC807D700C3B48E /* AddCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategories.swift; sourceTree = "<group>"; };
 		814C43C02AC0AAD1005194D8 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		814C43C22AC0AAF0005194D8 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		814C43C72AC0AF27005194D8 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				81F707DD2AC5E80D00DA348C /* PieChartView.swift */,
 				81F707DF2AC5E89100DA348C /* ExpensePieChartView.swift */,
 				81EFC3CF2AC6AADC00BF5151 /* SplashScreenView.swift */,
+				811E3C252AC807D700C3B48E /* AddCategories.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				81F707E52AC5EABB00DA348C /* DataPoint.swift in Sources */,
 				81F707DE2AC5E80D00DA348C /* PieChartView.swift in Sources */,
+				811E3C262AC807D700C3B48E /* AddCategories.swift in Sources */,
 				81F707D62AC5B9AB00DA348C /* BudgetEntryView.swift in Sources */,
 				814C43CE2AC0C731005194D8 /* BarView.swift in Sources */,
 				814C43D62AC1DE9B005194D8 /* AllTypesManager.swift in Sources */,

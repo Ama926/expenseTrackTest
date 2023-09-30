@@ -267,12 +267,13 @@ func dateFromTimestamp(_ timestamp: Timestamp) -> Date {
 struct ListView: View {
     @EnvironmentObject var allTypesManager: AllTypesManager
     @State private var isAddingNewExpense = false
-    @State private var selectedTab: Tab = .currentMonth // Initially set to Current Month
+    @State private var selectedTab: Tab = .currentWeek
 
     enum Tab {
+        case currentWeek
         case currentMonth
         case currentYear
-        case currentWeek // Add this case for filtering by current week
+        
     }
 
     var body: some View {
@@ -293,11 +294,11 @@ struct ListView: View {
                     }
                     .navigationTitle("All Records")
                     
-                    .navigationBarItems(trailing: Button(action: {
-                        isAddingNewExpense.toggle()
-                    }) {
-                        Image(systemName: "plus")
-                    })
+//                    .navigationBarItems(trailing: Button(action: {
+//                        isAddingNewExpense.toggle()
+//                    }) {
+//                        Image(systemName: "plus")
+//                    })
                     .sheet(isPresented: $isAddingNewExpense) {
                         NavigationView {
                             AddNewExpenses()
@@ -319,6 +320,40 @@ struct ListView: View {
         let calendar = Calendar.current
 
         switch selectedTab {
+        case .currentWeek:
+            // Calculate the start date and end date of the current week
+            if let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate)),
+               let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) {
+                
+                return allTypesManager.allTypes
+                    .compactMap { allTypes in
+                        guard
+                            let timestamp = allTypes.date as? Date,
+                            let amount = allTypes.amount as? Double,
+                            let type = allTypes.type as? String,
+                            let category = allTypes.category as? String,
+                            let remark = allTypes.remark as? String
+                        else {
+                            // Print an error or add some error handling here
+                            return nil
+                        }
+
+                        return Expenses(
+                            id: allTypes.id,
+                            date: timestamp,
+                            amount: amount,
+                            type: type,
+                            category: category,
+                            remark: remark
+                        )
+                    }
+                    .filter { expenses in
+                        return startOfWeek...endOfWeek ~= expenses.date // Filter by date range for the current week
+                    }
+            } else {
+                return [] // Return an empty array if the calculation fails
+            }
+            
         case .currentMonth:
             let currentMonth = calendar.component(.month, from: currentDate)
             let currentYear = calendar.component(.year, from: currentDate)
@@ -380,41 +415,6 @@ struct ListView: View {
                     let expenseYear = calendar.component(.year, from: expenses.date)
                     return expenseYear == currentYear
                 }
-
-        case .currentWeek:
-            // Calculate the start date and end date of the current week
-            if let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate)),
-               let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) {
-                
-                return allTypesManager.allTypes
-                    .compactMap { allTypes in
-                        guard
-                            let timestamp = allTypes.date as? Date,
-                            let amount = allTypes.amount as? Double,
-                            let type = allTypes.type as? String,
-                            let category = allTypes.category as? String,
-                            let remark = allTypes.remark as? String
-                        else {
-                            // Print an error or add some error handling here
-                            return nil
-                        }
-
-                        return Expenses(
-                            id: allTypes.id,
-                            date: timestamp,
-                            amount: amount,
-                            type: type,
-                            category: category,
-                            remark: remark
-                        )
-                    }
-                    .filter { expenses in
-                        return startOfWeek...endOfWeek ~= expenses.date // Filter by date range for the current week
-                    }
-            } else {
-                return [] // Return an empty array if the calculation fails
-            }
-
         }
     }
 }
