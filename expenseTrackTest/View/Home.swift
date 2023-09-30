@@ -15,12 +15,12 @@ struct HomeView: View {
     var body: some View {
         
         ZStack{
-            Color.white
+            Color.black
             VStack {
                 
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
                     .foregroundStyle(.linearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width: 400, height: 250)
+                    .frame(width: 400, height: 240)
                     .rotationEffect(.degrees(180))
                     .offset(y: -100)
                     .overlay(
@@ -30,19 +30,20 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                         )
            
-                //VStack{
+                VStack{
                     
-                CardView2(title: "Total Income", amount: viewModel.totalIncome, cardColor: .green.opacity(0.8), iconSystemName: "arrow.up.circle.fill")
-                
-                CardView2(title: "Total Expenses", amount: viewModel.totalExpenses, cardColor: .red.opacity(0.9), iconSystemName: "arrow.down.circle.fill")
+                CardView2(title: "Total Income", amount: viewModel.totalIncome, cardColor: .green.opacity(0.8), iconSystemName: "arrow.down.circle.fill")
+                    
+                CardView2(title: "Total Expenses", amount: viewModel.totalExpenses, cardColor: .red.opacity(0.9), iconSystemName: "arrow.up.circle.fill")
                 
                 CardView2(title: "Difference", amount: viewModel.totalIncome - viewModel.totalExpenses, cardColor: viewModel.totalIncome >= viewModel.totalExpenses ? Color.yellow.opacity(0.8) : Color.yellow.opacity(0.8), iconSystemName: "arrow.right.circle.fill")
 
-                //}
+                }
                 
             }
+            .padding()
         }
-        .ignoresSafeArea()
+        //.ignoresSafeArea()
     }
         
 }
@@ -53,7 +54,7 @@ struct CardView2: View {
     var cardColor: Color
     var iconSystemName: String // The SF Symbol name for the icon
     
-    init(title: String, amount: Double, cardColor: Color, iconSystemName: String) {
+    init(title: String, amount: Double,cardColor: Color, iconSystemName: String) {
         self.title = title
         self.amount = amount
         self.cardColor = cardColor
@@ -65,17 +66,23 @@ struct CardView2: View {
             HStack {
                 Image(systemName: iconSystemName) // Add the SF Symbol for the icon
                     .font(.title)
-                    .foregroundColor(.white)
+                    .foregroundColor(cardColor)
                 Text(title)
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(cardColor)
             }
             Text(String(format: "%.2f LKR", amount))
                 .font(.largeTitle)
-                .foregroundColor(.white)
+                .foregroundColor(cardColor)
         }
         .frame(width: 350, height: 100)
-        .background(cardColor)
+       // .background(.black)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 5)
+                .foregroundColor(cardColor)
+        )
+        .padding(.horizontal)
         .cornerRadius(15)
         .padding()
     }

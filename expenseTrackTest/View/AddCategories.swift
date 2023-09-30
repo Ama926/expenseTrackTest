@@ -36,13 +36,13 @@ struct AddCategoryView: View {
                 saveCategory()
             }) {
                 Text("Add New Category")
-                    .foregroundColor(.white)
-                    .font(.title3)
                     .bold()
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.black)
-                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color.black)
+                    )
+                    .foregroundColor(.white)
             }
             .buttonStyle(PlainButtonStyle())
             

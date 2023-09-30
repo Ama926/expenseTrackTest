@@ -35,15 +35,16 @@ struct AddNewExpenses: View {
                                 }
                                 .pickerStyle(MenuPickerStyle())
                                 .padding()
-                    
+
                     Picker("Category", selection: $selectedCategory){
                         ForEach(categoryOptions, id:\.self){ option in
                             Text(option)
                         }
                     }
-                    
+
                     .pickerStyle(MenuPickerStyle())
                     .padding()
+            
 
                     DatePicker("Date", selection: $selectedDate, displayedComponents: .date)
                         .foregroundColor(.black)
