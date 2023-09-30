@@ -73,16 +73,21 @@ struct CardView: View {
             Text(budget.month)
                 .font(.title)
                 .fontWeight(.bold)
+                .foregroundColor(Color.green)
             
             ForEach(budget.categories.sorted(by: <), id: \.key) { category, amount in
                 HStack {
                     Text(category)
-                        .font(.headline) // Adjust font size if needed
-                    Spacer()
+                        .font(.headline)
+                        .foregroundColor(Color.black)
+                         Spacer()
+                        
                     Text("\(amount, specifier: "%.2f LKR")")
-                        .font(.title3) // Adjust font size if needed
+                        .font(.title3)
+                        .foregroundColor(Color.red)
+                       
                 }
-                .padding(.vertical, 5) // Adjust vertical spacing
+                .padding(.vertical, 5)
             }
         }
         .background(Color.white)

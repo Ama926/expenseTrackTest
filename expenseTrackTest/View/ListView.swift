@@ -184,7 +184,7 @@ struct ExpenseView: View {
 
     var body: some View {
         ZStack{
-            Color.black
+           // Color.black
             VStack(alignment: .leading, spacing: 5) {
                 HStack(alignment: .top) {
                     if expenses.type == "Income" {
@@ -199,31 +199,21 @@ struct ExpenseView: View {
                         .foregroundColor(textColorForType(expenses.type))
                 }
                 Text("Remark: \(expenses.remark)")
-                    .foregroundColor(.white)
-                    .alignmentGuide(.leading) { dimension in
-                                            dimension[HorizontalAlignment.leading]
-                                        }
+                    .foregroundColor(.black)
+                    
+                                        
                 Text("Date: \(formattedDate(expenses.date))")
-                    .foregroundColor(.white)
-                    .alignmentGuide(.leading) { dimension in
-                                            dimension[HorizontalAlignment.leading]
-                                        }
+                    .foregroundColor(.black)
+                   
                 Text("Amount: \(String(format: "%.2f", expenses.amount))")
-                    .foregroundColor(.white)
-                    .alignmentGuide(.leading) { dimension in
-                                            dimension[HorizontalAlignment.leading]
-                                        }
+                    .foregroundColor(.black)
+                    
                 Text("Category: \(expenses.category)")
-                    .foregroundColor(.white)
-                    .alignmentGuide(.leading) { dimension in
-                                            dimension[HorizontalAlignment.leading]
-                                        }
+                    .foregroundColor(.black)
+                    
             }
             .padding(5)
-            .background{
-                Color.black
-                    .opacity(0.5)
-            }
+            
             
             .cornerRadius(10)
         }
