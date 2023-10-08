@@ -60,6 +60,12 @@ struct ContentView: View {
                 }
                     .tag(Tabs.report)
                 
+                InsightsView()
+                    .tabItem {
+                        Label("Insight", systemImage: "chart.bar.fill")
+                }
+                    .tag(Tabs.report)
+                
                 UserProfileView()
                     .tabItem {
                         Label("Profile", systemImage: "person.2.fill")

@@ -47,6 +47,7 @@
 		81F707E32AC5E9A000DA348C /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 81F707E22AC5E9A000DA348C /* SwiftUICharts */; };
 		81F707E52AC5EABB00DA348C /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707E42AC5EABB00DA348C /* DataPoint.swift */; };
 		81F707E72AC5F32400DA348C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F707E62AC5F32400DA348C /* ColorExtension.swift */; };
+		81FC20B62AD31CED00771F8C /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC20B52AD31CED00771F8C /* InsightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		81F707DF2AC5E89100DA348C /* ExpensePieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePieChartView.swift; sourceTree = "<group>"; };
 		81F707E42AC5EABB00DA348C /* DataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		81F707E62AC5F32400DA348C /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		81FC20B52AD31CED00771F8C /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				81F707DF2AC5E89100DA348C /* ExpensePieChartView.swift */,
 				81EFC3CF2AC6AADC00BF5151 /* SplashScreenView.swift */,
 				811E3C252AC807D700C3B48E /* AddCategories.swift */,
+				81FC20B52AD31CED00771F8C /* InsightView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				81F707D82AC5BC3F00DA348C /* BudgetHistoryView.swift in Sources */,
 				81F707DC2AC5E65400DA348C /* ReportViewModel.swift in Sources */,
 				811CEE5B2ABF686C00A0C1FB /* ContentView.swift in Sources */,
+				81FC20B62AD31CED00771F8C /* InsightView.swift in Sources */,
 				814C43D42AC1DC9C005194D8 /* ListAllTypes.swift in Sources */,
 				811CEE952ABF706300A0C1FB /* Home.swift in Sources */,
 				81F707D22AC5B72D00DA348C /* Budget.swift in Sources */,
